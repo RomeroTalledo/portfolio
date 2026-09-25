@@ -3,7 +3,7 @@
 Portafolio personal de una sola página: desarrollo frontend, backend y bases de datos.
 
 **Hecho con:** HTML · CSS · JavaScript (sin dependencias de build)
-**Paleta:** Urban Loft `#9C9A9A` · `#A35E47` · `#000000` · `#464646`
+**Paleta:** Pino `#F6F4EE` · `#0E7C5B` · `#211E1A` · `#8A8580`
 
 ## Ver en vivo
 

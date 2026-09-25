@@ -1,6 +1,6 @@
 /* Portafolio Dallin Romero — lógica */
 "use strict";
-const ACCENT = "#A35E47";
+const ACCENT = "#0E7C5B";
 
 /* ---------- STACK ---------- */
 const SKILLS = [
@@ -117,7 +117,7 @@ const next = () => goTo(index >= maxIndex() ? 0 : index + 1);
 const prev = () => goTo(index <= 0 ? maxIndex() : index - 1);
 document.getElementById("carNext").addEventListener("click", () => { next(); restartAuto(); });
 document.getElementById("carPrev").addEventListener("click", () => { prev(); restartAuto(); });
-function restartAuto() { clearInterval(autoTimer); autoTimer = setInterval(next, 6500); }
+function restartAuto() { clearInterval(autoTimer); autoTimer = setInterval(next, 8000); }
 let startX = 0, dragging = false;
 viewport.addEventListener("pointerdown", e => { dragging = true; startX = e.clientX; clearInterval(autoTimer); });
 window.addEventListener("pointerup", e => {
@@ -149,8 +149,8 @@ const codeLines = [...codeBody.querySelectorAll(".code-line")];
   codeLines.forEach(l => l.classList.remove("on"));
   const t = setInterval(() => {
     if (i < codeLines.length) { codeLines[i].classList.add("on"); i++; }
-    else { clearInterval(t); setTimeout(playCode, 3800); }
-  }, 480);
+    else { clearInterval(t); setTimeout(playCode, 4500); }
+  }, 650);
 })();
 
 /* ---------- MÁQUINA DE ESCRIBIR (hero izquierda) ---------- */
@@ -164,9 +164,9 @@ let li = 0, ci = 0, deleting = false;
 (function type() {
   const line = lines[li];
   typingEl.textContent = line.slice(0, ci);
-  if (!deleting && ci < line.length) { ci++; setTimeout(type, 70); }
-  else if (!deleting) { deleting = true; setTimeout(type, 2200); }
-  else if (ci > 0) { ci--; setTimeout(type, 32); }
+  if (!deleting && ci < line.length) { ci++; setTimeout(type, 85); }
+  else if (!deleting) { deleting = true; setTimeout(type, 2600); }
+  else if (ci > 0) { ci--; setTimeout(type, 40); }
   else { deleting = false; li = (li + 1) % lines.length; setTimeout(type, 500); }
 })();
 
@@ -185,7 +185,7 @@ const cIO = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (!e.isIntersecting) return;
     const el = e.target, target = +el.dataset.count; let cur = 0;
-    const t = setInterval(() => { cur++; el.textContent = cur; if (cur >= target) clearInterval(t); }, 200);
+    const t = setInterval(() => { cur++; el.textContent = cur; if (cur >= target) clearInterval(t); }, 260);
     cIO.unobserve(el);
   });
 }, { threshold: 0.5 });
@@ -206,7 +206,7 @@ navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => na
 (function () {
   const cv = document.getElementById("techCanvas");
   const ctx = cv.getContext("2d");
-  const COLORS = ["163,94,71", "156,154,154", "70,70,70"];
+  const COLORS = ["14,124,91", "138,133,128", "60,55,48"];
   let pts = [], W = 0, H = 0;
   const reduced = window.matchMedia("(prefers-reduced-motion:reduce)").matches;
   function size() {
@@ -232,7 +232,7 @@ navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => na
       const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y, d = Math.hypot(dx, dy);
       if (d < 130) {
         ctx.beginPath(); ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y);
-        ctx.strokeStyle = `rgba(163,94,71,${(1 - d / 130) * 0.3})`; ctx.stroke();
+        ctx.strokeStyle = `rgba(14,124,91,${(1 - d / 130) * 0.3})`; ctx.stroke();
       }
     }
     if (!reduced) requestAnimationFrame(frame);
