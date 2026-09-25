@@ -3,7 +3,7 @@
 Portafolio personal de una sola página: desarrollo frontend, backend y bases de datos.
 
 **Hecho con:** HTML · CSS · JavaScript (sin dependencias de build)
-**Paleta:** Desert Mirage `#C2B280` · `#E35336` · `#98A869` · `#272757`
+**Paleta:** Urban Loft `#9C9A9A` · `#A35E47` · `#000000` · `#464646`
 
 ## Ver en vivo
 
