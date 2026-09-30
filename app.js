@@ -42,29 +42,17 @@ const SKILLS = [
   }
 ];
 
-/* ---------- PROYECTOS ---------- */
+/* ---------- FUTUROS PROYECTOS (espacio reservado) ---------- */
 const PROJECTS = [
-  { emoji: "🛒", bg: "linear-gradient(135deg,#A35E47,#5f3425)", lang: "JavaScript", title: "CSE 340 · Tienda Full-Stack",
-    desc: "App completa con Node.js, Express y EJS: rutas, controladores y datos.",
-    tags: ["Node.js", "Express", "EJS"], url: "https://github.com/RomeroTalledo/cse340-course-repo" },
-  { emoji: "🌐", bg: "linear-gradient(135deg,#464646,#000)", lang: "HTML", title: "WDD 231 · Frontend Interactivo",
-    desc: "Sitio responsive con JavaScript dinámico y consumo de datos.",
-    tags: ["HTML", "CSS", "JavaScript"], url: "https://github.com/RomeroTalledo/wdd231" },
-  { emoji: "🧮", bg: "linear-gradient(135deg,#9C9A9A,#5c5a5a)", lang: "C#", title: "CSE 212 · Estructuras de Datos",
-    desc: "Pilas, colas, listas y árboles en C# con análisis de complejidad.",
-    tags: ["C#", "Algoritmos"], url: "https://github.com/RomeroTalledo/cse212-hw" },
-  { emoji: "🧱", bg: "linear-gradient(135deg,#7E4634,#A35E47)", lang: "C#", title: "CSE 210 · POO en C#",
-    desc: "Clases, herencia y encapsulamiento en proyectos orientados a objetos.",
-    tags: ["C#", "POO"], url: "https://github.com/RomeroTalledo/cse210-hwo" },
-  { emoji: "📱", bg: "linear-gradient(135deg,#464646,#A35E47)", lang: "HTML", title: "WDD 131 · Sitios Dinámicos",
-    desc: "DOM, eventos y formularios interactivos con JavaScript.",
-    tags: ["HTML", "CSS", "JavaScript"], url: "https://github.com/RomeroTalledo/wdd131" },
-  { emoji: "🎨", bg: "linear-gradient(135deg,#000,#464646)", lang: "HTML", title: "WDD 130 · Fundamentos Web",
-    desc: "Maquetación, estilos y despliegue con GitHub Pages.",
-    tags: ["HTML", "CSS"], url: "https://github.com/RomeroTalledo/wdd130" },
-  { emoji: "💡", bg: "linear-gradient(135deg,#9C9A9A,#464646)", lang: "HTML", title: "Web Funda · Bases Web",
-    desc: "Estructura, estilo y buenas prácticas del desarrollo web.",
-    tags: ["HTML", "CSS"], url: "https://github.com/RomeroTalledo/web-funda" }
+  { emoji: "🚀", bg: "linear-gradient(135deg,#0E7C5B,#083B2C)", lang: "Próximamente", title: "Nuevo proyecto en camino",
+    desc: "Actualmente construyendo algo nuevo. Vuelve pronto para verlo aquí.",
+    tags: ["En desarrollo"], url: "https://github.com/RomeroTalledo?tab=repositories", linkText: "Mi GitHub →" },
+  { emoji: "💡", bg: "linear-gradient(135deg,#3a352c,#211E1A)", lang: "Tu idea", title: "¿Tienes un proyecto en mente?",
+    desc: "Este espacio puede ser para tu idea. Conversemos y la hacemos realidad.",
+    tags: ["Colaboremos"], url: "#contacto", linkText: "Contáctame →" },
+  { emoji: "🛠️", bg: "linear-gradient(135deg,#8A8580,#4a463f)", lang: "En evolución", title: "Portafolio en crecimiento",
+    desc: "Cada proyecto que construya vivirá aquí, con código abierto en GitHub.",
+    tags: ["Próximamente"], url: "https://github.com/RomeroTalledo", linkText: "Seguir mi trabajo →" }
 ];
 
 /* ---------- RENDER: skills ---------- */
@@ -86,7 +74,7 @@ track.innerHTML = PROJECTS.map(p => `
     <div class="proj__body">
       <h3>${p.title}</h3><p>${p.desc}</p>
       <div class="proj__tags">${p.tags.map(t => `<span>${t}</span>`).join("")}</div>
-      <a class="proj__link" href="${p.url}" target="_blank" rel="noopener">Ver en GitHub →</a>
+      <a class="proj__link" href="${p.url}" ${p.url.startsWith("http") ? 'target="_blank" rel="noopener"' : ""}>${p.linkText || "Ver en GitHub →"}</a>
     </div>
   </article>`).join("");
 
@@ -135,7 +123,7 @@ const CODE_LINES = [
   `  name: <span class="s">'Dallin Romero'</span>,`,
   `  role: <span class="s">'Software Developer'</span>,`,
   `  stack: [<span class="s">'JS'</span>, <span class="s">'Node'</span>, <span class="s">'Python'</span>, <span class="s">'C#'</span>],`,
-  `  hireable: <span class="k">true</span>`,
+  `  remote: <span class="k">true</span>`,
   `};`,
   ``,
   `<span class="c">// construyendo mi futuro, commit a commit</span>`,
