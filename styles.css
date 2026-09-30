@@ -341,7 +341,8 @@ a {
   gap: 12px;
   margin-top: 26px;
 }
-.hero__social a {
+.hero__social a,
+.hero__social button {
   width: 46px;
   height: 46px;
   display: grid;
@@ -349,12 +350,16 @@ a {
   border-radius: 12px;
   background: #fff;
   border: 1px solid var(--line);
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
   transition:
     transform var(--t-fast),
     background var(--t-fast),
     color var(--t-fast);
 }
-.hero__social a:hover {
+.hero__social a:hover,
+.hero__social button:hover {
   transform: translateY(-6px) rotate(-8deg);
   background: var(--pine);
   color: #fff;
@@ -1015,6 +1020,10 @@ a {
     background var(--t-fast),
     box-shadow var(--t-fast);
   display: block;
+  width: 100%;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
   color: var(--ink);
 }
 .contact__card:hover {
@@ -1196,4 +1205,73 @@ a {
     opacity: 1;
     transform: none;
   }
+}
+
+/* ============ MODAL COPIAR CORREO ============ */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 18, 16, 0.55);
+  backdrop-filter: blur(4px);
+  display: grid;
+  place-items: center;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+.modal-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal {
+  background: #fff;
+  border-top: 6px solid var(--pine);
+  border-radius: 20px;
+  padding: 30px 28px 28px;
+  width: calc(100% - 44px);
+  max-width: 380px;
+  text-align: center;
+  box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.5);
+  position: relative;
+  transform: translateY(26px) scale(0.96);
+  transition: transform 0.55s cubic-bezier(0.22, 0.8, 0.24, 1);
+}
+.modal-backdrop.open .modal {
+  transform: none;
+}
+.modal h3 {
+  font-size: 1.2rem;
+}
+.modal__close {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--muted);
+  transition: color var(--t-fast), transform var(--t-fast);
+}
+.modal__close:hover {
+  color: var(--ink);
+  transform: scale(1.2);
+}
+.modal__mail {
+  font-family: var(--font-m);
+  font-size: 0.88rem;
+  background: var(--bg);
+  border: 1px dashed var(--pine);
+  border-radius: 12px;
+  padding: 11px 14px;
+  margin: 14px 0 18px;
+  word-break: break-all;
+}
+.modal__actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
 }

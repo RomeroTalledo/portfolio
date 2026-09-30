@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=6" />
+    <link rel="stylesheet" href="styles.css?v=7" />
   </head>
   <body>
     <!-- ============ NAV ============ -->
@@ -106,7 +106,12 @@
                   />
                 </svg>
               </a>
-              <a href="mailto:dallinromero2002@gmail.com" aria-label="Email">
+              <button
+                type="button"
+                id="emailBtnHero"
+                aria-label="Ver y copiar email"
+                aria-haspopup="dialog"
+              >
                 <svg
                   viewBox="0 0 24 24"
                   width="22"
@@ -120,7 +125,7 @@
                   <rect x="2" y="4" width="20" height="16" rx="2" />
                   <path d="m22 7-10 6L2 7" />
                 </svg>
-              </a>
+              </button>
             </div>
           </div>
 
@@ -348,13 +353,15 @@
             ¿Tienes un proyecto en mente? Respondo rápido.
           </p>
           <div class="contact__grid">
-            <a
+            <button
+              type="button"
+              id="emailBtnCard"
               class="contact__card reveal"
-              href="mailto:dallinromero2002@gmail.com"
+              aria-haspopup="dialog"
             >
               <span class="contact__icon">✉️</span>
               <strong>Email</strong><span>dallinromero2002@gmail.com</span>
-            </a>
+            </button>
             <a class="contact__card reveal" href="tel:+51934674893">
               <span class="contact__icon">📞</span>
               <strong>Teléfono</strong><span>+51 934 674 893</span>
@@ -401,6 +408,36 @@
       </p>
     </footer>
 
-    <script src="app.js?v=6"></script>
+    <!-- Modal: copiar correo -->
+    <div class="modal-backdrop" id="emailModal" aria-hidden="true">
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="emailModalTitle"
+      >
+        <button class="modal__close" data-close aria-label="Cerrar">
+          ×
+        </button>
+        <h3 id="emailModalTitle">Mi correo</h3>
+        <p class="modal__mail">dallinromero2002@gmail.com</p>
+        <div class="modal__actions">
+          <button
+            type="button"
+            class="btn btn--primary btn--small"
+            id="copyEmailBtn"
+          >
+            Copiar
+          </button>
+          <a
+            class="btn btn--ghost btn--small"
+            href="mailto:dallinromero2002@gmail.com"
+            >Escribir</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js?v=7"></script>
   </body>
 </html>

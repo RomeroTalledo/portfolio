@@ -304,6 +304,52 @@ navLinks
     a.addEventListener("click", () => navLinks.classList.remove("open")),
   );
 
+/* ---------- MODAL: copiar correo ---------- */
+const EMAIL = "dallinromero2002@gmail.com";
+const emailModal = document.getElementById("emailModal");
+const copyEmailBtn = document.getElementById("copyEmailBtn");
+function openEmailModal() {
+  emailModal.classList.add("open");
+  emailModal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+  emailModal.querySelector(".modal__close").focus();
+}
+function closeEmailModal() {
+  emailModal.classList.remove("open");
+  emailModal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
+document
+  .getElementById("emailBtnHero")
+  .addEventListener("click", openEmailModal);
+document
+  .getElementById("emailBtnCard")
+  .addEventListener("click", openEmailModal);
+emailModal
+  .querySelectorAll("[data-close]")
+  .forEach((b) => b.addEventListener("click", closeEmailModal));
+emailModal.addEventListener("click", (e) => {
+  if (e.target === emailModal) closeEmailModal();
+});
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && emailModal.classList.contains("open"))
+    closeEmailModal();
+});
+copyEmailBtn.addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText(EMAIL);
+  } catch (_) {
+    const ta = document.createElement("textarea");
+    ta.value = EMAIL;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    ta.remove();
+  }
+  copyEmailBtn.textContent = "¡Copiado! ✓";
+  setTimeout(() => (copyEmailBtn.textContent = "Copiar"), 2000);
+});
+
 /* ---------- CANVAS: red sutil terracota ---------- */
 (function () {
   const cv = document.getElementById("techCanvas");
