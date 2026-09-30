@@ -17,14 +17,14 @@ const SKILLS = [
     svg: `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="${ACCENT}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="7" rx="2"/><rect x="2" y="14" width="20" height="7" rx="2"/><path d="M6 6.5h.01M6 17.5h.01"/></svg>`
   },
   {
-    tag: "Bases de datos", title: "SQL en formación",
-    desc: "Fundamentos de modelado y consultas del programa BYU-Idaho; creciendo a diseños sólidos.",
-    tech: "SQL · Modelado", pct: 55,
+    tag: "Bases de datos", title: "SQL y modelado relacional",
+    desc: "Diseño de esquemas normalizados, consultas con joins, CRUD y buenas prácticas aplicadas en proyectos.",
+    tech: "SQL · Modelado", pct: 70,
     svg: `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="${ACCENT}" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg>`
   },
   {
     tag: "Python · C#", title: "POO y algoritmos",
-    desc: "Python para fundamentos; C# con POO, estructuras de datos y análisis de complejidad.",
+    desc: "Python aplicado a scripting, lógica y POO; C# con estructuras de datos y análisis de complejidad.",
     tech: "Python · C# · POO", pct: 70,
     svg: `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="${ACCENT}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`
   },
