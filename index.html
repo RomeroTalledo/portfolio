@@ -1,203 +1,406 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dallin Romero — Software Developer</title>
-  <meta name="description" content="Portafolio de Dallin Romero: desarrollador de software (frontend, backend y bases de datos). BYU-Idaho." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=6" />
-</head>
-<body>
-  <!-- ============ NAV ============ -->
-  <header class="nav" id="nav">
-    <a class="nav__brand" href="#inicio" aria-label="Inicio">
-      <span class="nav__logo">&lt;DR/&gt;</span>
-    </a>
-    <nav class="nav__links" aria-label="Navegación principal">
-      <a href="#sobre-mi">Sobre mí</a>
-      <a href="#habilidades">Stack</a>
-      <a href="#trayectoria">Trayectoria</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#contacto" class="btn btn--small">Contáctame</a>
-    </nav>
-    <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dallin Romero — Software Developer</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <meta
+      name="description"
+      content="Portafolio de Dallin Romero: desarrollador de software (frontend, backend y bases de datos). BYU-Idaho."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=6" />
+  </head>
+  <body>
+    <!-- ============ NAV ============ -->
+    <header class="nav" id="nav">
+      <a class="nav__brand" href="#inicio" aria-label="Inicio">
+        <span class="nav__logo">&lt;DR/&gt;</span>
+      </a>
+      <nav class="nav__links" aria-label="Navegación principal">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#habilidades">Stack</a>
+        <a href="#trayectoria">Trayectoria</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto" class="btn btn--small">Contáctame</a>
+      </nav>
+      <button
+        class="nav__toggle"
+        id="navToggle"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </header>
 
-  <main>
-    <!-- ============ HERO ============ -->
-    <section class="hero" id="inicio">
-      <canvas id="techCanvas" class="hero__canvas" aria-hidden="true"></canvas>
-      <div class="hero__inner">
-        <div class="hero__copy">
-          <p class="hero__eyebrow reveal"><span class="pulse-dot"></span> Lima, Perú · Trabajo remoto</p>
-          <h1 class="hero__title reveal">Dallin Romero</h1>
-          <p class="hero__role reveal">Software Developer · Frontend + Backend</p>
-          <p class="hero__typing reveal"><span class="prompt">$</span> <span id="typing"></span><span class="caret"></span></p>
-          <div class="hero__cta reveal">
-            <a href="#proyectos" class="btn btn--primary">Ver proyectos</a>
-            <a href="https://github.com/RomeroTalledo" target="_blank" rel="noopener" class="btn btn--ghost">GitHub</a>
-          </div>
-          <div class="hero__social reveal">
-            <a href="https://github.com/RomeroTalledo" target="_blank" rel="noopener" aria-label="GitHub">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.15c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.35.95.1-.74.4-1.25.72-1.53-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.27 5.66.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
-            </a>
-            <a href="https://www.linkedin.com/in/dallin-e-romero" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
-            </a>
-            <a href="mailto:dallinromero2002@gmail.com" aria-label="Email">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Ventana de código animada -->
-        <div class="hero__visual reveal">
-          <div class="codewin" aria-hidden="true">
-            <div class="codewin__bar">
-              <span class="dot d--r"></span><span class="dot d--y"></span><span class="dot d--g"></span>
-              <span class="codewin__tab">dev.js</span>
+    <main>
+      <!-- ============ HERO ============ -->
+      <section class="hero" id="inicio">
+        <canvas
+          id="techCanvas"
+          class="hero__canvas"
+          aria-hidden="true"
+        ></canvas>
+        <div class="hero__inner">
+          <div class="hero__copy">
+            <p class="hero__eyebrow reveal">
+              <span class="pulse-dot"></span> Lima, Perú · Trabajo remoto
+            </p>
+            <h1 class="hero__title reveal">Dallin Romero</h1>
+            <p class="hero__role reveal">
+              Software Developer · Frontend + Backend
+            </p>
+            <p class="hero__typing reveal">
+              <span class="prompt">$</span> <span id="typing"></span
+              ><span class="caret"></span>
+            </p>
+            <div class="hero__cta reveal">
+              <a href="#proyectos" class="btn btn--primary">Ver proyectos</a>
+              <a
+                href="https://github.com/RomeroTalledo"
+                target="_blank"
+                rel="noopener"
+                class="btn btn--ghost"
+                >GitHub</a
+              >
             </div>
-            <div class="codewin__body" id="codeBody"></div>
-            <div class="codewin__status"><span>● live</span><span>JS · UTF-8</span></div>
+            <div class="hero__social reveal">
+              <a
+                href="https://github.com/RomeroTalledo"
+                target="_blank"
+                rel="noopener"
+                aria-label="GitHub"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  width="22"
+                  height="22"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.15c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.35.95.1-.74.4-1.25.72-1.53-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.27 5.66.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/dallin-e-romero"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  width="22"
+                  height="22"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45z"
+                  />
+                </svg>
+              </a>
+              <a href="mailto:dallinromero2002@gmail.com" aria-label="Email">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="22"
+                  height="22"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="m22 7-10 6L2 7" />
+                </svg>
+              </a>
+            </div>
           </div>
-          <div class="chips" aria-hidden="true">
-            <span class="chip c1">JS</span>
-            <span class="chip c2">Node</span>
-            <span class="chip c3">SQL</span>
-            <span class="chip c4">C#</span>
-          </div>
-        </div>
-      </div>
-      <div class="hero__stats">
-        <div class="stat reveal"><strong data-count="7">0</strong><span>repos en GitHub</span></div>
-        <div class="stat reveal"><strong data-count="6">0</strong><span>tecnologías</span></div>
-        <div class="stat reveal"><strong data-count="2">0</strong><span>roles en IT</span></div>
-        <div class="stat reveal"><strong data-count="3">0</strong><span>estudios tech</span></div>
-      </div>
-      <a class="scroll-hint" href="#sobre-mi" aria-label="Bajar a Sobre mí">↓</a>
-    </section>
 
-    <!-- ============ MARQUEE ============ -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee__track">
-        <span>JavaScript</span><i>✦</i><span>HTML5</span><i>✦</i><span>CSS3</span><i>✦</i><span>Node.js</span><i>✦</i><span>Express</span><i>✦</i><span>EJS</span><i>✦</i><span>Python</span><i>✦</i><span>C#</span><i>✦</i><span>SQL</span><i>✦</i><span>Git &amp; GitHub</span><i>✦</i>
-        <span>JavaScript</span><i>✦</i><span>HTML5</span><i>✦</i><span>CSS3</span><i>✦</i><span>Node.js</span><i>✦</i><span>Express</span><i>✦</i><span>EJS</span><i>✦</i><span>Python</span><i>✦</i><span>C#</span><i>✦</i><span>SQL</span><i>✦</i><span>Git &amp; GitHub</span><i>✦</i>
-      </div>
-    </div>
-
-    <!-- ============ SOBRE MÍ ============ -->
-    <section class="section about" id="sobre-mi">
-      <div class="wrap">
-        <p class="kicker reveal">Sobre mí</p>
-        <h2 class="section__title reveal">Desarrollador de software con base en IT</h2>
-        <div class="about__grid">
-          <div class="about__card reveal">
-            <p>Soy <strong>Dallin Romero</strong>, desarrollador de software: construyo para la web con <strong>JavaScript, Node.js, Python y C#</strong> — interfaces claras en el frontend y lógica ordenada en el backend, con bases de datos relacionales bien modeladas.</p>
-            <p>Mi diferencial: años de <strong>soporte IT</strong> — diagnóstico de sistemas, redes y hardware —, así que debuggeo con método y entiendo lo que pasa bajo el capó. Formación en <strong>Software Development (BYU-Idaho)</strong>.</p>
-          </div>
-          <ul class="about__facts reveal">
-            <li><strong>💻 Enfoque</strong><span>Frontend · Backend · SQL</span></li>
-            <li><strong>📍 Base</strong><span>Lima, Perú · remoto</span></li>
-            <li><strong>🎓 Estudios</strong><span>BYU-Idaho · Ensign College · TestOut</span></li>
-            <li><strong>💬 Idiomas</strong><span>Español nativo · Inglés profesional</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ STACK ============ -->
-    <section class="section skills" id="habilidades">
-      <div class="wrap">
-        <p class="kicker reveal">Stack</p>
-        <h2 class="section__title reveal">Mi caja de herramientas</h2>
-        <div class="skills__grid" id="skillsGrid"><!-- generado por app.js --></div>
-      </div>
-    </section>
-
-    <!-- ============ TRAYECTORIA ============ -->
-    <section class="section path" id="trayectoria">
-      <div class="wrap">
-        <p class="kicker reveal">Trayectoria</p>
-        <h2 class="section__title reveal">Experiencia IT + desarrollo de software</h2>
-        <div class="path__grid">
-          <div>
-            <h3 class="path__label reveal">💼 Experiencia IT</h3>
-            <ol class="timeline">
-              <li class="reveal"><span class="t-dot"></span><div><strong>Asistente de Soporte Postventa</strong><em>Inversiones Titania Perú · 2026</em><p>100+ casos: diagnóstico de SO, drivers y software; mantenimiento de hardware y coordinación técnica.</p></div></li>
-              <li class="reveal"><span class="t-dot"></span><div><strong>Especialista de Soporte Técnico</strong><em>First System Technology · 2020–2021</em><p>Resolución de incidencias HW/SW y capacitación a usuarios.</p></div></li>
-            </ol>
-          </div>
-          <div>
-            <h3 class="path__label reveal">🎓 Educación tech</h3>
-            <ol class="timeline">
-              <li class="reveal"><span class="t-dot t-dot--alt"></span><div><strong>B.S. Software Development</strong><em>BYU-Idaho · 2025–2027</em><p>Frontend, backend, POO y estructuras de datos (JS, Python, C#).</p></div></li>
-              <li class="reveal"><span class="t-dot t-dot--alt"></span><div><strong>Technical Support Engineer</strong><em>Ensign College · 2023–2024</em><p>Base en sistemas, redes y troubleshooting.</p></div></li>
-              <li class="reveal"><span class="t-dot t-dot--alt"></span><div><strong>PC Pro · Hardware y Windows 11</strong><em>TestOut · 2023–2024</em><p>Certificación técnica.</p></div></li>
-            </ol>
+          <!-- Ventana de código animada -->
+          <div class="hero__visual reveal">
+            <div class="codewin" aria-hidden="true">
+              <div class="codewin__bar">
+                <span class="dot d--r"></span><span class="dot d--y"></span
+                ><span class="dot d--g"></span>
+                <span class="codewin__tab">dev.js</span>
+              </div>
+              <div class="codewin__body" id="codeBody"></div>
+              <div class="codewin__status">
+                <span>● live</span><span>JS · UTF-8</span>
+              </div>
+            </div>
+            <div class="chips" aria-hidden="true">
+              <span class="chip c1">JS</span>
+              <span class="chip c2">Node</span>
+              <span class="chip c3">SQL</span>
+              <span class="chip c4">C#</span>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ============ PROYECTOS ============ -->
-    <section class="section projects" id="proyectos">
-      <div class="wrap">
-        <p class="kicker reveal">Proyectos</p>
-        <h2 class="section__title reveal">Mis proyectos</h2>
-        <p class="section__sub reveal">Espacio reservado para lo que estoy construyendo.</p>
-        <div class="carousel reveal">
-          <button class="car-btn car-btn--prev" id="carPrev" aria-label="Proyectos anteriores">‹</button>
-          <div class="car-viewport" id="carViewport">
-            <div class="car-track" id="carTrack"><!-- generado por app.js --></div>
+        <div class="hero__stats">
+          <div class="stat reveal">
+            <strong data-count="7">0</strong><span>repos en GitHub</span>
           </div>
-          <button class="car-btn car-btn--next" id="carNext" aria-label="Proyectos siguientes">›</button>
+          <div class="stat reveal">
+            <strong data-count="6">0</strong><span>tecnologías</span>
+          </div>
+          <div class="stat reveal">
+            <strong data-count="2">0</strong><span>roles en IT</span>
+          </div>
+          <div class="stat reveal">
+            <strong data-count="3">0</strong><span>estudios tech</span>
+          </div>
         </div>
-        <div class="car-dots" id="carDots" role="tablist" aria-label="Paginación del carrusel"></div>
-      </div>
-    </section>
+        <a class="scroll-hint" href="#sobre-mi" aria-label="Bajar a Sobre mí"
+          >↓</a
+        >
+      </section>
 
-    <!-- ============ CONTACTO ============ -->
-    <section class="section contact" id="contacto">
-      <div class="wrap">
-        <p class="kicker reveal">Contacto</p>
-        <h2 class="section__title reveal">¿Hablamos?</h2>
-        <p class="section__sub reveal">¿Tienes un proyecto en mente? Respondo rápido.</p>
-        <div class="contact__grid">
-          <a class="contact__card reveal" href="mailto:dallinromero2002@gmail.com">
-            <span class="contact__icon">✉️</span>
-            <strong>Email</strong><span>dallinromero2002@gmail.com</span>
-          </a>
-          <a class="contact__card reveal" href="tel:+51934674893">
-            <span class="contact__icon">📞</span>
-            <strong>Teléfono</strong><span>+51 934 674 893</span>
-          </a>
-          <a class="contact__card reveal" href="https://www.linkedin.com/in/dallin-e-romero" target="_blank" rel="noopener">
-            <span class="contact__icon">💼</span>
-            <strong>LinkedIn</strong><span>/in/dallin-e-romero</span>
-          </a>
-          <a class="contact__card reveal" href="https://github.com/RomeroTalledo" target="_blank" rel="noopener">
-            <span class="contact__icon">💻</span>
-            <strong>GitHub</strong><span>@RomeroTalledo</span>
-          </a>
+      <!-- ============ MARQUEE ============ -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>JavaScript</span><i>✦</i><span>HTML5</span><i>✦</i
+          ><span>CSS3</span><i>✦</i><span>Node.js</span><i>✦</i
+          ><span>Express</span><i>✦</i><span>EJS</span><i>✦</i
+          ><span>Python</span><i>✦</i><span>C#</span><i>✦</i><span>SQL</span
+          ><i>✦</i><span>Git &amp; GitHub</span><i>✦</i> <span>JavaScript</span
+          ><i>✦</i><span>HTML5</span><i>✦</i><span>CSS3</span><i>✦</i
+          ><span>Node.js</span><i>✦</i><span>Express</span><i>✦</i
+          ><span>EJS</span><i>✦</i><span>Python</span><i>✦</i><span>C#</span
+          ><i>✦</i><span>SQL</span><i>✦</i><span>Git &amp; GitHub</span><i>✦</i>
         </div>
       </div>
-    </section>
-  </main>
 
-  <footer class="footer">
-    <p>© 2026 <strong>Dallin Erick Romero Talledo</strong></p>
-    <p class="footer__links">
-      <a href="https://github.com/RomeroTalledo" target="_blank" rel="noopener">GitHub</a>
-      <span>·</span>
-      <a href="https://www.linkedin.com/in/dallin-e-romero" target="_blank" rel="noopener">LinkedIn</a>
-    </p>
-  </footer>
+      <!-- ============ SOBRE MÍ ============ -->
+      <section class="section about" id="sobre-mi">
+        <div class="wrap">
+          <p class="kicker reveal">Sobre mí</p>
+          <h2 class="section__title reveal">
+            Desarrollador de software con base en IT
+          </h2>
+          <div class="about__grid">
+            <div class="about__card reveal">
+              <p>
+                Soy <strong>Dallin Romero</strong>, desarrollador de software:
+                construyo para la web con
+                <strong>JavaScript, Node.js, Python y C#</strong> — interfaces
+                claras en el frontend y lógica ordenada en el backend, con bases
+                de datos relacionales bien modeladas.
+              </p>
+              <p>
+                Mi diferencial: años de <strong>soporte IT</strong> —
+                diagnóstico de sistemas, redes y hardware —, así que debuggeo
+                con método y entiendo lo que pasa bajo el capó. Formación en
+                <strong>Software Development (BYU-Idaho)</strong>.
+              </p>
+            </div>
+            <ul class="about__facts reveal">
+              <li>
+                <strong>💻 Enfoque</strong><span>Frontend · Backend · SQL</span>
+              </li>
+              <li><strong>📍 Base</strong><span>Lima, Perú · remoto</span></li>
+              <li>
+                <strong>🎓 Estudios</strong
+                ><span>BYU-Idaho · Ensign College · TestOut</span>
+              </li>
+              <li>
+                <strong>💬 Idiomas</strong
+                ><span>Español nativo · Inglés profesional</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-  <script src="app.js?v=6"></script>
-</body>
+      <!-- ============ STACK ============ -->
+      <section class="section skills" id="habilidades">
+        <div class="wrap">
+          <p class="kicker reveal">Stack</p>
+          <h2 class="section__title reveal">Mi caja de herramientas</h2>
+          <div class="skills__grid" id="skillsGrid">
+            <!-- generado por app.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ TRAYECTORIA ============ -->
+      <section class="section path" id="trayectoria">
+        <div class="wrap">
+          <p class="kicker reveal">Trayectoria</p>
+          <h2 class="section__title reveal">
+            Experiencia IT + desarrollo de software
+          </h2>
+          <div class="path__grid">
+            <div>
+              <h3 class="path__label reveal">💼 Experiencia IT</h3>
+              <ol class="timeline">
+                <li class="reveal">
+                  <span class="t-dot"></span>
+                  <div>
+                    <strong>Asistente de Soporte Postventa</strong
+                    ><em>Inversiones Titania Perú · 2026</em>
+                    <p>
+                      100+ casos: diagnóstico de SO, drivers y software;
+                      mantenimiento de hardware y coordinación técnica.
+                    </p>
+                  </div>
+                </li>
+                <li class="reveal">
+                  <span class="t-dot"></span>
+                  <div>
+                    <strong>Especialista de Soporte Técnico</strong
+                    ><em>First System Technology · 2020–2021</em>
+                    <p>
+                      Resolución de incidencias HW/SW y capacitación a usuarios.
+                    </p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <div>
+              <h3 class="path__label reveal">🎓 Educación tech</h3>
+              <ol class="timeline">
+                <li class="reveal">
+                  <span class="t-dot t-dot--alt"></span>
+                  <div>
+                    <strong>B.S. Software Development</strong
+                    ><em>BYU-Idaho · 2025–2027</em>
+                    <p>
+                      Frontend, backend, POO y estructuras de datos (JS, Python,
+                      C#).
+                    </p>
+                  </div>
+                </li>
+                <li class="reveal">
+                  <span class="t-dot t-dot--alt"></span>
+                  <div>
+                    <strong>Technical Support Engineer</strong
+                    ><em>Ensign College · 2023–2024</em>
+                    <p>Base en sistemas, redes y troubleshooting.</p>
+                  </div>
+                </li>
+                <li class="reveal">
+                  <span class="t-dot t-dot--alt"></span>
+                  <div>
+                    <strong>PC Pro · Hardware y Windows 11</strong
+                    ><em>TestOut · 2023–2024</em>
+                    <p>Certificación técnica.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PROYECTOS ============ -->
+      <section class="section projects" id="proyectos">
+        <div class="wrap">
+          <p class="kicker reveal">Proyectos</p>
+          <h2 class="section__title reveal">Mis proyectos</h2>
+          <p class="section__sub reveal">
+            Espacio reservado para lo que estoy construyendo.
+          </p>
+          <div class="carousel reveal">
+            <button
+              class="car-btn car-btn--prev"
+              id="carPrev"
+              aria-label="Proyectos anteriores"
+            >
+              ‹
+            </button>
+            <div class="car-viewport" id="carViewport">
+              <div class="car-track" id="carTrack">
+                <!-- generado por app.js -->
+              </div>
+            </div>
+            <button
+              class="car-btn car-btn--next"
+              id="carNext"
+              aria-label="Proyectos siguientes"
+            >
+              ›
+            </button>
+          </div>
+          <div
+            class="car-dots"
+            id="carDots"
+            role="tablist"
+            aria-label="Paginación del carrusel"
+          ></div>
+        </div>
+      </section>
+
+      <!-- ============ CONTACTO ============ -->
+      <section class="section contact" id="contacto">
+        <div class="wrap">
+          <p class="kicker reveal">Contacto</p>
+          <h2 class="section__title reveal">¿Hablamos?</h2>
+          <p class="section__sub reveal">
+            ¿Tienes un proyecto en mente? Respondo rápido.
+          </p>
+          <div class="contact__grid">
+            <a
+              class="contact__card reveal"
+              href="mailto:dallinromero2002@gmail.com"
+            >
+              <span class="contact__icon">✉️</span>
+              <strong>Email</strong><span>dallinromero2002@gmail.com</span>
+            </a>
+            <a class="contact__card reveal" href="tel:+51934674893">
+              <span class="contact__icon">📞</span>
+              <strong>Teléfono</strong><span>+51 934 674 893</span>
+            </a>
+            <a
+              class="contact__card reveal"
+              href="https://www.linkedin.com/in/dallin-e-romero"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="contact__icon">💼</span>
+              <strong>LinkedIn</strong><span>/in/dallin-e-romero</span>
+            </a>
+            <a
+              class="contact__card reveal"
+              href="https://github.com/RomeroTalledo"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="contact__icon">💻</span>
+              <strong>GitHub</strong><span>@RomeroTalledo</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 <strong>Dallin Erick Romero Talledo</strong></p>
+      <p class="footer__links">
+        <a
+          href="https://github.com/RomeroTalledo"
+          target="_blank"
+          rel="noopener"
+          >GitHub</a
+        >
+        <span>·</span>
+        <a
+          href="https://www.linkedin.com/in/dallin-e-romero"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
+      </p>
+    </footer>
+
+    <script src="app.js?v=6"></script>
+  </body>
 </html>
