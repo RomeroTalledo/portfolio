@@ -22,7 +22,8 @@ export async function fetchRepos(signal) {
     { signal },
   )
   if (!res.ok) {
-    throw new Error(`GitHub respondió ${res.status}. Inténtalo más tarde.`)
+    // Solo el código: la frase la traduce el diccionario (i18n.js).
+    throw new Error(`GitHub ${res.status}`)
   }
   const data = await res.json()
   // Ocultamos este mismo portafolio para no listarnos a nosotros mismos.
@@ -71,14 +72,16 @@ export function demoUrlFor(repo) {
 }
 
 // Etiquetas de tecnología: lenguaje + topics (máx. 3 topics).
-export function techTagsFor(repo) {
+// `fallback` se usa cuando el repo no trae ni lenguaje ni topics;
+// así la etiqueta la elige el idioma activo en lugar de venir fija.
+export function techTagsFor(repo, fallback = []) {
   const tags = []
   if (repo.language) tags.push(repo.language)
   for (const t of repo.topics || []) {
     if (tags.length >= 4) break
     if (!tags.includes(t)) tags.push(t)
   }
-  return tags.length ? tags : ['Código']
+  return tags.length ? tags : fallback
 }
 
 // Título legible: "cse340-course-repo" → "Cse340 Course Repo".

@@ -1,19 +1,24 @@
-import { useEffect, useState } from 'react'
-import { CODE_LINES } from '../data/profile.js'
+import { useEffect, useMemo, useState } from 'react'
+import { codeLinesFor } from '../data/profile.js'
+import { useLang } from '../context/LangContext.jsx'
 
 // CodeWindow: la ventana dev.js que "se escribe" línea por línea, en bucle.
 // `visible` = cuántas líneas ya se mostraron.
 export default function CodeWindow() {
+  const { lang } = useLang()
   const [visible, setVisible] = useState(0)
+  // useMemo: sin él, `lines` sería un array nuevo en cada render y el
+  // efecto de abajo se reiniciaría sin parar (la ventana nunca avanzaría).
+  const lines = useMemo(() => codeLinesFor(lang), [lang])
 
   useEffect(() => {
-    if (visible < CODE_LINES.length) {
+    if (visible < lines.length) {
       const t = setTimeout(() => setVisible((v) => v + 1), 650)
       return () => clearTimeout(t)
     }
     const t = setTimeout(() => setVisible(0), 4500) // pausa y reinicia
     return () => clearTimeout(t)
-  }, [visible])
+  }, [visible, lines])
 
   return (
     <div className="codewin" aria-hidden="true">
@@ -24,7 +29,7 @@ export default function CodeWindow() {
         <span className="codewin__tab">dev.js</span>
       </div>
       <div className="codewin__body">
-        {CODE_LINES.map((tokens, i) => (
+        {lines.map((tokens, i) => (
           <div key={i} className={`code-line${i < visible ? ' on' : ''}`}>
             {tokens.length === 0 ? (
               <>&nbsp;</>

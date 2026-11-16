@@ -1,13 +1,8 @@
 import { useEffect, useState } from 'react'
-
-const LINKS = [
-  { href: '#sobre-mi', label: 'Sobre mí' },
-  { href: '#habilidades', label: 'Stack' },
-  { href: '#trayectoria', label: 'Trayectoria' },
-  { href: '#proyectos', label: 'Proyectos' },
-]
+import { useLang } from '../context/LangContext.jsx'
 
 export default function Navbar() {
+  const { T, lang, toggle } = useLang()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -21,29 +16,42 @@ export default function Navbar() {
 
   return (
     <header className={`nav${scrolled ? ' scrolled' : ''}`}>
-      <a className="nav__brand" href="#inicio" aria-label="Inicio">
+      <a className="nav__brand" href="#inicio" aria-label={T.nav.home}>
         <span className="nav__logo">&lt;DR/&gt;</span>
       </a>
-      <nav className={`nav__links${open ? ' open' : ''}`} aria-label="Navegación principal">
-        {LINKS.map((l) => (
+      <nav className={`nav__links${open ? ' open' : ''}`} aria-label={T.nav.ariaMain}>
+        {T.nav.links.map((l) => (
           <a key={l.href} href={l.href} onClick={() => setOpen(false)}>
             {l.label}
           </a>
         ))}
         <a href="#contacto" className="btn btn--small" onClick={() => setOpen(false)}>
-          Contáctame
+          {T.nav.contact}
         </a>
       </nav>
-      <button
-        className="nav__toggle"
-        onClick={() => setOpen((o) => !o)}
-        aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
-        aria-expanded={open}
-      >
-        <span />
-        <span />
-        <span />
-      </button>
+      <div className="nav__end">
+        {/* Selector EN / ES: muestra el idioma ACTIVO resaltado. */}
+        <button
+          type="button"
+          className="lang-switch"
+          onClick={toggle}
+          aria-label={T.nav.switchLang}
+          title={T.nav.switchLang}
+        >
+          <span className={lang === 'en' ? 'on' : ''} aria-hidden="true">EN</span>
+          <span className={lang === 'es' ? 'on' : ''} aria-hidden="true">ES</span>
+        </button>
+        <button
+          className="nav__toggle"
+          onClick={() => setOpen((o) => !o)}
+          aria-label={open ? T.nav.closeMenu : T.nav.openMenu}
+          aria-expanded={open}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </div>
     </header>
   )
 }

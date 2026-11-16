@@ -1,11 +1,14 @@
 import { categorizeRepo, demoUrlFor, prettyName, techTagsFor } from '../lib/github.js'
+import { useLang } from '../context/LangContext.jsx'
 
 // ProjectCard: tarjeta reutilizable de proyecto.
 // Es un <button> para que sea clicable por teclado (accesibilidad).
 // Props: repo (objeto de la API) + onSelect(repo) al hacer clic.
 export default function ProjectCard({ repo, onSelect }) {
+  const { T } = useLang()
   const category = categorizeRepo(repo)
-  const tags = techTagsFor(repo)
+  // Si el repo no trae lenguaje ni topics, usamos la etiqueta traducida.
+  const tags = techTagsFor(repo, [T.projects.codeTag])
   const demo = demoUrlFor(repo)
 
   return (
@@ -16,14 +19,14 @@ export default function ProjectCard({ repo, onSelect }) {
       </span>
       <span className="proj__body">
         <h3>{prettyName(repo.name)}</h3>
-        <p>{repo.description || 'Repositorio de código en GitHub — ver README para más detalles.'}</p>
+        <p>{repo.description || T.projects.repoFallback}</p>
         <span className="proj__tags">
           {tags.map((t) => (
             <span key={t}>{t}</span>
           ))}
         </span>
         <span className="proj__link">
-          {demo ? 'Ver demo →' : 'Ver en GitHub →'}
+          {demo ? T.projects.viewDemo : T.projects.viewRepo}
         </span>
       </span>
     </button>

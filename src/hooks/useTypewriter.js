@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 // useTypewriter: escribe las líneas letra por letra, en bucle.
 // Devuelve el texto visible actual. Úsalo dentro de un <span>.
@@ -6,8 +6,19 @@ export function useTypewriter(lines, typeMs = 85, holdMs = 2600, eraseMs = 40) {
   const [text, setText] = useState('')
   const [line, setLine] = useState(0)
   const [deleting, setDeleting] = useState(false)
+  const linesRef = useRef(lines)
 
   useEffect(() => {
+    // Si cambió el array de líneas (cambio de idioma), reiniciamos limpio:
+    // sin esto, seguiría tecleando la frase vieja sobre la nueva.
+    if (linesRef.current !== lines) {
+      linesRef.current = lines
+      setText('')
+      setLine(0)
+      setDeleting(false)
+      return
+    }
+
     const current = lines[line % lines.length]
     let delay
     if (!deleting && text.length < current.length) {

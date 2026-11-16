@@ -1,4 +1,5 @@
 import { GITHUB_URL, LINKEDIN_URL, TYPING_LINES } from '../data/profile.js'
+import { useLang } from '../context/LangContext.jsx'
 import { useTypewriter } from '../hooks/useTypewriter.js'
 import { useCountUp } from '../hooks/useCountUp.js'
 import TechCanvas from './TechCanvas.jsx'
@@ -9,8 +10,15 @@ const CHIPS = ['JS', 'Node', 'SQL', 'C#']
 
 // Hero recibe el conteo REAL de repos (viene de App, que usa useRepos).
 export default function Hero({ repoCount, reposReady, onEmail }) {
-  const typed = useTypewriter(TYPING_LINES)
+  const { T, lang } = useLang()
+  const typed = useTypewriter(TYPING_LINES[lang])
   const animatedCount = useCountUp(repoCount, reposReady)
+  const stats = [
+    { value: reposReady ? animatedCount : '…', label: T.hero.stats.projects },
+    { value: '6', label: T.hero.stats.tech },
+    { value: '2', label: T.hero.stats.roles },
+    { value: '3', label: T.hero.stats.studies },
+  ]
 
   return (
     <section className="hero" id="inicio">
@@ -19,14 +27,14 @@ export default function Hero({ repoCount, reposReady, onEmail }) {
         <div className="hero__copy">
           <Reveal>
             <p className="hero__eyebrow">
-              <span className="pulse-dot" /> Lima, Perú · Trabajo remoto
+              <span className="pulse-dot" /> {T.hero.eyebrow}
             </p>
           </Reveal>
           <Reveal delay={0.1}>
             <h1 className="hero__title">Dallin Romero</h1>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="hero__role">Software Developer · Frontend + Backend</p>
+            <p className="hero__role">{T.hero.role}</p>
           </Reveal>
           <Reveal delay={0.3}>
             <p className="hero__typing" aria-live="off">
@@ -37,7 +45,7 @@ export default function Hero({ repoCount, reposReady, onEmail }) {
           <Reveal delay={0.4}>
             <div className="hero__cta">
               <a href="#proyectos" className="btn btn--primary">
-                Ver proyectos
+                {T.hero.cta}
               </a>
               <a href={GITHUB_URL} target="_blank" rel="noopener" className="btn btn--ghost">
                 GitHub
@@ -56,7 +64,7 @@ export default function Hero({ repoCount, reposReady, onEmail }) {
                   <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45z" />
                 </svg>
               </a>
-              <button type="button" onClick={onEmail} aria-label="Ver y copiar email" aria-haspopup="dialog">
+              <button type="button" onClick={onEmail} aria-label={T.hero.copyEmail} aria-haspopup="dialog">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <rect x="2" y="4" width="20" height="16" rx="2" />
                   <path d="m22 7-10 6L2 7" />
@@ -81,33 +89,17 @@ export default function Hero({ repoCount, reposReady, onEmail }) {
       </div>
 
       <div className="hero__stats">
-        <Reveal>
-          <div className="stat">
-            {/* Contador REAL: proyectos visibles (sin cursos BYU) */}
-            <strong>{reposReady ? animatedCount : '…'}</strong>
-            <span>proyectos publicados</span>
-          </div>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <div className="stat">
-            <strong>6</strong>
-            <span>tecnologías</span>
-          </div>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <div className="stat">
-            <strong>2</strong>
-            <span>roles en IT</span>
-          </div>
-        </Reveal>
-        <Reveal delay={0.3}>
-          <div className="stat">
-            <strong>3</strong>
-            <span>estudios tech</span>
-          </div>
-        </Reveal>
+        {stats.map((s, i) => (
+          <Reveal key={s.label} delay={i * 0.1}>
+            <div className="stat">
+              {/* Contador REAL: proyectos visibles (sin cursos BYU) */}
+              <strong>{s.value}</strong>
+              <span>{s.label}</span>
+            </div>
+          </Reveal>
+        ))}
       </div>
-      <a className="scroll-hint" href="#sobre-mi" aria-label="Bajar a Sobre mí">
+      <a className="scroll-hint" href="#sobre-mi" aria-label={T.hero.scrollHint}>
         ↓
       </a>
     </section>

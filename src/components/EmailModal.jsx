@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import { EMAIL } from '../data/profile.js'
+import { useLang } from '../context/LangContext.jsx'
 
 // EmailModal: ventanita para copiar el correo.
 // Props: open (bool) + onClose(). La abre Hero y Contact vía App.
 export default function EmailModal({ open, onClose }) {
+  const { T } = useLang()
   const [copied, setCopied] = useState(false)
 
   useEffect(() => {
@@ -45,17 +47,17 @@ export default function EmailModal({ open, onClose }) {
       }}
     >
       <div className="modal" role="dialog" aria-modal="true" aria-labelledby="emailModalTitle">
-        <button className="modal__close" onClick={onClose} aria-label="Cerrar" autoFocus>
+        <button className="modal__close" onClick={onClose} aria-label={T.email.close} autoFocus>
           ×
         </button>
-        <h3 id="emailModalTitle">Mi correo</h3>
+        <h3 id="emailModalTitle">{T.email.title}</h3>
         <p className="modal__mail">{EMAIL}</p>
         <div className="modal__actions">
           <button type="button" className="btn btn--primary btn--small" onClick={copy}>
-            {copied ? '¡Copiado! ✓' : 'Copiar'}
+            {copied ? T.email.copied : T.email.copy}
           </button>
           <a className="btn btn--ghost btn--small" href={`mailto:${EMAIL}`}>
-            Escribir
+            {T.email.write}
           </a>
         </div>
       </div>

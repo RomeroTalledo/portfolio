@@ -202,6 +202,55 @@ button {
   border-radius: 3px;
 }
 
+/* ============ SELECTOR DE IDIOMA (EN / ES) ============ */
+.nav__end {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  /* Por encima del menú móvil (que entra desde la derecha). */
+  z-index: 60;
+}
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+  font-family: var(--font-m);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  transition: border-color var(--t-fast), background var(--t-fast);
+}
+.lang-switch:hover {
+  border-color: var(--pine);
+}
+.lang-switch:focus-visible {
+  outline: 2px solid var(--pine);
+  outline-offset: 2px;
+}
+.lang-switch span {
+  padding: 4px 9px;
+  border-radius: 999px;
+  color: var(--stone);
+  transition:
+    background var(--t-fast),
+    color var(--t-fast);
+}
+.lang-switch span.on {
+  background: var(--pine);
+  color: #fff;
+}
+/* En móvil el nav no tiene fondo fijo: el chip necesita contraste. */
+@media (max-width: 900px) {
+  .lang-switch {
+    background: rgba(246, 244, 238, 0.9);
+  }
+}
+
 /* ============ HERO ============ */
 .hero {
   position: relative;

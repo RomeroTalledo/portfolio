@@ -1,19 +1,22 @@
 import { EMAIL, GITHUB_URL, LINKEDIN_URL, PHONE } from '../data/profile.js'
+import { useLang } from '../context/LangContext.jsx'
 import Reveal from './Reveal.jsx'
 
 // Contact recibe onEmail desde App para abrir el modal de correo.
 export default function Contact({ onEmail }) {
+  const { T } = useLang()
+
   return (
     <section className="section contact" id="contacto">
       <div className="wrap">
         <Reveal>
-          <p className="kicker">Contacto</p>
+          <p className="kicker">{T.contact.kicker}</p>
         </Reveal>
         <Reveal>
-          <h2 className="section__title">¿Hablamos?</h2>
+          <h2 className="section__title">{T.contact.title}</h2>
         </Reveal>
         <Reveal>
-          <p className="section__sub">¿Tienes un proyecto en mente? Respondo rápido.</p>
+          <p className="section__sub">{T.contact.sub}</p>
         </Reveal>
         <div className="contact__grid">
           <Reveal>
@@ -26,7 +29,7 @@ export default function Contact({ onEmail }) {
           <Reveal delay={0.1}>
             <a className="contact__card" href={`tel:${PHONE.replace(/\s/g, '')}`}>
               <span className="contact__icon" aria-hidden="true">📞</span>
-              <strong>Teléfono</strong>
+              <strong>{T.contact.phone}</strong>
               <span>{PHONE}</span>
             </a>
           </Reveal>
